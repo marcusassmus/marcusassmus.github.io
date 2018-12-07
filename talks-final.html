@@ -50,10 +50,14 @@
    text-align: right;
 }
 
-p {
-    background: rgba(0, 0, 0, 0);
-    color: rgba(0, 0, 0, 0);
-    font: normal  0.8em Helvetica;
+#window {
+	background: rgba(255, 255, 255, 0.8);
+	top:20;
+    left:20;
+    min-height:60%;
+	min-width: 320px;
+    position:fixed;
+    z-index: 2;
 }
 </style>
 
@@ -91,6 +95,15 @@ document.oncontextmenu = click;
 <a style="text-decoration: none;font: normal  1.05em Monospace;color: white;" href="talks-final.html">.tlk</a>
 <a style="text-decoration: none;font: normal  1.05em Monospace;color: white;" href="net-final.html">.net</a>
 </div>
+
+<iframe id=window
+   sandbox="allow-scripts allow-popups allow-forms"
+   src="talks.html"
+   width="50%" 
+   name="talks"
+   frameborder="0"
+   >
+</iframe>
 
 </body>
 </html>
