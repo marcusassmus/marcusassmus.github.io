@@ -1,0 +1,91 @@
+
+<html>
+<head>
+
+
+<script language="JavaScript">
+<!--
+
+var numBlocks=16;
+var numImages=41;
+
+var currentImages = new Array();
+
+for (i = 1; i <= numBlocks; i++) {
+    currentImages[i] = i;
+}
+
+function swapPicture() {
+        var numberToSwapOut = Math.ceil(Math.random()*numBlocks);
+        var imageToSwapOut = "image" + numberToSwapOut;
+
+        var numberToSwapIn;
+        var present = true;
+
+        while (present) {
+            numberToSwapIn = Math.ceil(Math.random()*numImages);
+            present = false;
+            for (i = 1; i <= numBlocks; i++) {
+                if (currentImages[i] == numberToSwapIn) {
+                    present = true;
+                    break;
+                }
+            }
+        }
+
+        currentImages[numberToSwapOut] = numberToSwapIn;
+
+        if (numberToSwapIn < 10) {
+             numberToSwapIn = "0" + numberToSwapIn;
+        }
+
+        var imageToSwapIn = "work/" + numberToSwapIn + ".jpg";
+
+        var target=document.getElementById(imageToSwapOut);
+        target.src=imageToSwapIn;
+
+      setTimeout("swapPicture()", 2000);
+}
+
+setTimeout("swapPicture()", 2000);
+
+//-->
+</script>
+
+<style>
+td{border: 1px solid #3C3C3C;padding: 0px 0px;}
+</style>
+
+</head>
+
+<body>
+		
+    <table cellspacing="5">
+        <tbody><tr>
+        <td><img style="width:170px;height:170px;" src="./work/01.jpg" id="image1" name="image1"></td>
+        <td><img style="width:170px;height:170px;" src="./work/02.jpg" id="image2" name="image2"></td>
+        <td><img style="width:170px;height:170px;" src="./work/03.jpg" id="image3" name="image3"></td>
+        <td><img style="width:170px;height:170px;" src="./work/04.jpg" id="image4" name="image4"></td>
+        </tr>
+        <tr>
+        <td><img style="width:170px;height:170px;" src="./work/05.jpg" id="image5" name="image5"></td>
+        <td><img style="width:170px;height:170px;" src="./work/06.jpg" id="image6" name="image6"></td>
+        <td><img style="width:170px;height:170px;" src="./work/07-1.jpg" id="image7" name="image7"></td>
+        <td><img style="width:170px;height:170px;" src="./work/08.jpg" id="image8" name="image8"></td>
+        </tr>
+        <tr>    
+        <td><img style="width:170px;height:170px;" src="./work/09.jpg" id="image9" name="image9"></td>
+        <td><img style="width:170px;height:170px;" src="./work/10.jpg" id="image10" name="image10"></td>
+        <td><img style="width:170px;height:170px;" src="./work/11.jpg" id="image11" name="image11"></td>
+        <td><img style="width:170px;height:170px;" src="./work/12.jpg" id="image12" name="image12"></td>
+        </tr>
+        <tr>    
+        <td><img style="width:170px;height:170px;" src="./work/13.jpg" id="image13" name="image13"></td>
+        <td><img style="width:170px;height:170px;" src="./work/14.jpg" id="image14" name="image14"></td>
+        <td><img style="width:170px;height:170px;" src="./work/15.jpg" id="image15" name="image15"></td>
+        <td><img style="width:170px;height:170px;" src="./work/39.jpg" id="image16" name="image16"></td>
+        </tr>
+    </tbody></table>
+
+</body>
+</html>
