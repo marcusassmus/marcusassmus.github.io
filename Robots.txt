@@ -9,4 +9,4 @@ Allow: /publications-final.html
 Allow: /talks-final.html
 Allow: /net-final.html
 Allow: /sci-final.html
-Allow: /ma-pub.html
+Allow: /ma-pub.pdf
