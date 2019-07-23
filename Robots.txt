@@ -1,0 +1,12 @@
+User-Agent: *
+Disallow: /index.html
+Disallow: /mechanics.html
+Disallow: /publications.html
+Disallow: /talks.html
+Disallow: /net.html
+Disallow: /sci.html
+Allow: /publications-final.html
+Allow: /talks-final.html
+Allow: /net-final.html
+Allow: /sci-final.html
+Allow: /ma-pub.html
