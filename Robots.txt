@@ -1,5 +1,6 @@
 User-Agent: *
 Allow: /index.html
+Allow: /ma-pub.pdf
 Disallow: /mechanics.html
 Disallow: /publications.html
 Disallow: /talks.html
@@ -9,4 +10,5 @@ Disallow: /publications-final.html
 Disallow: /talks-final.html
 Disallow: /net-final.html
 Disallow: /sci-final.html
-Allow: /ma-pub.pdf
+
+Sitemap: https://marcusassmus.github.io/sitemap.xml
