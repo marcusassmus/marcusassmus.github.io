@@ -6,9 +6,6 @@ Disallow: /publications.html
 Disallow: /talks.html
 Disallow: /net.html
 Disallow: /sci.html
-Disallow: /publications-final.html
-Disallow: /talks-final.html
-Disallow: /net-final.html
 Disallow: /sci-final.html
 
 Sitemap: https://marcusassmus.github.io/sitemap.xml
