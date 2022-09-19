@@ -1,0 +1,47 @@
+*Biographical data of some important mechanics*
+
+
+Stevin, Simon			1548 - 1620
+Galilei, Galileo		1564 - 1642
+Kepler, Johannes		1571 - 1630
+Guericke, Otto von		1602 - 1686
+Hooke, Robert			1635 - 1703
+Newton, Isaac			1643 - 1727
+Leibniz, Gottfried W.		1646 - 1716
+Bernoulli, multiple 	ca. 	1650 - 1800
+Euler, Leonhard 		1707 - 1783
+d´Alembert, Jean le Rond 	1717 - 1783
+Lagrange, Joseph Louis 		1736 - 1813
+Coulomb, Charles Augustin 	1736 - 1806
+Saint-Venant, Barre de 		1797 - 1886
+Navier, Louis Marie Henri 	1785 - 1836
+Cauchy, Augustin Louis 		1789 - 1857
+Hamilton, William Rowan 	1805 - 1865
+
+
+*Literature on the history of mechanics*
+
+
+Bell, E. T.: Men of Mathematics. Simon and Schuster, New York, 1937.
+
+Benvenuto, E.: An Introduction to the History of Structural Mechanics. Part I & II. Springer-Verlag, New York, 1991.
+
+Capecchi, D.; Ruta, G.: Strength of Materials and Theory of Elasticity in 19th Century Italy. Springer-Verlag, 2015.
+
+Dugas, R.: A History of Mechanics. Dover Pub., New York, 1988.
+
+Fierz, M.: Vorlesungen zur Entwicklungsgeschichte der Mechanik. Springer-Verlag, Berlin, 1972.
+
+Hund, F.: Geschichte der physikalischen Begriffe. BI Wissenschaftsverlag, Mannheim, 1968.
+
+Kurrer, K.-E.: The History of the Theory of Structures. From Arch Analysis to Computational Mechanics. Ernst & Sohn, Berlin, 2008.
+
+Stein, E. (edt.): The History of Theoretical, Material and Computational Mechanics - Mathematics Meets Mechanics and Engineering. Springer, Berlin, 2014.
+
+Szabo, I.: Geschichte der mechanischen Prinzipien. Birkhäuser, Basel, 1977.
+
+Timoshenko, S. P.: History of Strength of Materials. McGraw-Hill, 1953.
+
+Todhunter, I.; Pearson, K.: A History of the Theory of Elasticity and of the Strength of Materials: From Galilei to the present time. University press, 1893.
+
+Truesdell, C. A.: Essays on the History of Mechanics. Springer-Verlag, Berlin, 1968.
