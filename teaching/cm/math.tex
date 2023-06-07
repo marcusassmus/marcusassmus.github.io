@@ -1,0 +1,167 @@
+%We are running pdfLaTeX!
+%
+\documentclass[11pt,a4paper,fleqn]{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% standard packages 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} 
+\usepackage{float}
+\usepackage{ngerman}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{multicol}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% geometry page
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\geometry{left=1.5cm,textwidth=17.8cm,top=1.4cm,textheight=26cm} % für Hausaufgaben, makrotypographisch wenig sinnvoll
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% math packages
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{calligra} % Font für Mengen und Gruppen
+\usepackage{mathrsfs}
+\everymath=\expandafter{\the\everymath\displaystyle}
+\usepackage{xfrac} % beinhaltet \sfrac für schräge Brüche im Text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% own macros
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\dil}{\mathrm{dil}} %dilatorisch
+\newcommand{\dev}{\mathrm{dev}} %deviatorisch
+\renewcommand{\b}{\boldsymbol} % allgemein fette Mathematik
+\newcommand{\ve}{\boldsymbol} %Vektoren
+\newcommand{\tz}{\boldsymbol} % Tensoren zweiter Stufe
+\DeclareMathAlphabet{\mathbfsf}{\encodingdefault}{\sfdefault}{bx}{sl}
+\newcommand{\tv}[1]{{\mathbfsf{#1}}} % tensoren vierter Stufe
+% ein paar Operatoren
+\renewcommand{\d}{\, \mathrm{d}} % Zeichen für z.B. "Ableitung ... nach ..."
+\newcommand{\pd}{\, \partial} % Zeichen für z.B. "partielle Ableitung ... nach ..."
+\renewcommand{\div}{\, \mathrm{div} \,} % Divergenz
+\newcommand{\grad}{\, \mathrm{grad} \,} % Gradient
+\newcommand{\rot}{\, \mathrm{rot} \,} % Rotation
+\newcommand{\spur}{\, \mathrm{spur} \,} % Rotation
+\renewcommand{\sp}{\b{\cdot}}  % Skalar-Produkt
+\newcommand{\kp}{\times}  % Kreuz-Produkt
+\newcommand{\dyad}{\otimes}  % Dyadisches Produkt
+% Matrizeninhalt rechtsbündig
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+% Mengen und Gruppen --- in Text und Matheumgebungen nutzbar!
+\newcommand{\lin}{\,\text{\calligra{Lin}}}  
+\newcommand{\inv}{\,\text{\calligra{Inv}}}  
+\newcommand{\invpl}{\,\text{\calligra{Inv}$^+$}} 
+\newcommand{\invmi}{\,\text{\calligra{Inv}$^-$}} 
+\newcommand{\unim}{\,\text{\calligra{Unim}}}  
+\newcommand{\unimpl}{\,\text{\calligra{Unim}$^+$}}  
+\newcommand{\unimmi}{\,\text{\calligra{Unim}$^-$}}  
+\newcommand{\orth}{\,\text{\calligra{Orth}}} 
+\newcommand{\orthpl}{\,\text{\calligra{Orth}$^{\;\;+}$}} 
+\newcommand{\orthmi}{\,\text{\calligra{Orth}$^{\;\;-}$}} 
+\newcommand{\iso}{\,\text{\calligra{Iso}}} 
+\newcommand{\isopl}{\,\text{\calligra{Iso}$^{\;+}$}} 
+\newcommand{\isomi}{\,\text{\calligra{Iso}$^{\;-}$}} 
+\newcommand{\sym}{\,\text{\calligra{Sym}}} 
+\newcommand{\skw}{\,\text{\calligra{Skw}}} 
+\newcommand{\psym}{\,\text{\calligra{Psym}}} 
+% Räume --- in Text und Matheumgebungen nutzbar!
+\newcommand{\R}{\;\text{\calligra{R}}}  
+\newcommand{\V}{\;\text{\calligra{V}}}
+\newcommand{\E}{\;\text{\calligra{E}}}
+% Körper --- in Text und Matheumgebungen nutzbar!
+% hier ohne den Calligra-Font, das sonst zu groß im Vergleich zu \pd
+\renewcommand{\k}{\;$\mathscr{B}$}
+\newcommand{\kn}{\;$\mathscr{B}_0$}
+\newcommand{\kt}{\;$\mathscr{B}_t$}
+\newcommand{\kr}{$\pd\mathscr{B}$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\familydefault}{\sfdefault} % serifenlose Schrift für das gesamte Dokument
+\pagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% los gehts!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\section*{Kontinuumsmechanik in \LaTeX{}  \textnormal{(nach \textsc{Bertram})}}
+\vfill
+\subsection*{Schreibweise}
+% hier Verzicht auf geradestehende Mathematik! besser nach DIN 1338 da mikrotypografisch korrekt und klarer!
+\begin{tabbing}
+$a$ 			\hspace{1cm}\=Skalar, Tensor 0. Stufe \; (klein, kursiv, normales Schriftgewicht)\\
+$\ve{a}$ 		\>Vektor, Tensor 1. Stufe\; (klein, kursiv, fett) \\
+$\tz{A}$ 		\>Dyade, Tensor 2. Stufe \; (groß, kursiv, fett)\\
+$\tv{A}$		\>Tetrade, Tensor 4. Stufe  \; (groß, kursiv, fett, serifenlos)
+\end{tabbing}
+
+\subsection*{Mengen und Gruppen}
+\begin{multicols}{2}
+\begin{tabbing}
+\lin			\hspace{1cm}\= Lineare Tensoren\\
+% funktioniert auch mit $\lin$  usw.
+\inv			\> Invertierbare Tensoren\\
+\invpl			\> \dots\\
+\invmi		\> \dots\\
+\unim		\> Unimodulare Tensoren\\
+\unimpl		\>\dots\\
+\unimmi		\>\dots\\
+\orth			\> Orthogonale Tensoren\\
+\orthpl		\>\dots\\
+\orthmi		\> \dots\\
+\iso			\> Iso-Tensoren\\
+\isopl			\> \dots \\
+\isomi		\> \dots\\
+\sym			\> Symmetrische Tensoren\\
+\skw			\> Schiefsymmetrische Tensoren\\
+\psym		\> Symmetrische Tensoren mit pos. EW
+\end{tabbing}
+\end{multicols}
+\subsection*{Operatoren}
+\begin{tabbing}
+$\sp$ 		\hspace{1cm}\= Skalarprodukt\\
+$\kp$ 		\> Kreuzprodukt\\
+$\dyad$ 		\> Dyadisches Produkt\\
+$\div$ 		\> Divergenz\\
+$\grad$ 		\>Gradient\\
+$\rot$ 		\> Rotation\\
+$\spur$ 		\> Spur\\
+$\d$ 			\> Ableitung\\
+$\pd$ 		\> Partielle Ableitung\\
+\end{tabbing}
+
+\subsection*{Räume} 
+\begin{tabbing}
+\R 			\hspace{1cm}\= Raum der reellen Zahlen\\
+\V 			\>Vektorraum\\
+\E 			\>\textsc{Euklid}ischer Raum\\
+\end{tabbing}
+
+\subsection*{Körper} 
+\begin{tabbing}
+\k			\hspace{1cm}\=Materieller Körper\\
+\kr			\>Körperrand\\
+\kn			\>Materieller Körper in der Referenzplatzierung\\
+\kt			\>Materieller Körper in der Momentanplatzierung\\
+\end{tabbing}
+\vfill
+Magdeburg, November 2013\hfill Marcus Aßmus
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
