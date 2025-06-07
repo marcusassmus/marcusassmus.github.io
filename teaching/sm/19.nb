@@ -1,0 +1,548 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17289,        540]
+NotebookOptionsPosition[     16982,        526]
+NotebookOutlinePosition[     17326,        541]
+CellTagsIndexPosition[     17283,        538]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"n", "=", "9"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"maximaler", " ", "Polynomgrad"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"l", "=", "1"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"L\[ADoubleDot]nge", " ", "des", " ", "Streifens"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"G", "=", "40"}], ";"}], 
+  RowBox[{"(*", "Schubmodul", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"K", "=", "120"}], ";"}], 
+  RowBox[{"(*", "Kompressionsmodul", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"disp", "=", 
+    RowBox[{"l", "/", "5"}]}], ";"}], 
+  RowBox[{"(*", "Verschiebung", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ykerbe", "=", 
+    RowBox[{"20", "*", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"l", "/", "2"}], "-", "x"}], ")"}], "^", "2"}]}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"l", "/", "10"}], ")"}], "^", "2"}]}], ")"}]}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+     "Form", " ", "der", " ", "Kerbe", " ", "an", " ", "der", " ", "Stelle", 
+      " ", "x"}], "=", 
+     RowBox[{"l", "/", "2"}]}], ",", 
+    RowBox[{"zwischen", " ", 
+     RowBox[{"2", "/", "5"}], " ", "l", " ", "und", " ", 
+     RowBox[{"3", "/", "5"}], " ", "l", " ", "angenommen"}]}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<Integrant w f\[UDoubleDot]r Ploynomansatz der Ordnung \>\"", ",", "n", 
+   ",", "\"\< mit \>\"", ",", 
+   RowBox[{"2", "*", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"n", "+", "1"}], ")"}], "^", "2"}]}], ",", 
+   "\"\< Koeffizienten aufbauen...\>\""}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{"CX", "=", 
+   RowBox[{"Array", "[", 
+    RowBox[{"cxval", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"n", "+", "1"}], ",", 
+       RowBox[{"n", "+", "1"}]}], "}"}]}], "]"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Felder", " ", "der", " ", "Koeffizienten", " ", "und", " ", "Gleichungen",
+     " ", "anlegen"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"CY", "=", 
+   RowBox[{"Array", "[", 
+    RowBox[{"cyval", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"n", "+", "1"}], ",", 
+       RowBox[{"n", "+", "1"}]}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"eqb1", "=", 
+   RowBox[{"Array", "[", 
+    RowBox[{"e1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"n", "+", "1"}], ",", 
+       RowBox[{"n", "+", "1"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eqb2", "=", 
+   RowBox[{"Array", "[", 
+    RowBox[{"e2", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"n", "+", "1"}], ",", 
+       RowBox[{"n", "+", "1"}]}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ux", "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "/", "l"}], "*", "disp"}], "+", 
+     RowBox[{"x", "*", 
+      RowBox[{"(", 
+       RowBox[{"x", "-", "1"}], ")"}], "*", 
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"CX", "[", 
+          RowBox[{"[", 
+           RowBox[{
+            RowBox[{"i", "+", "1"}], ",", 
+            RowBox[{"j", "+", "1"}]}], "]"}], "]"}], "*", 
+         RowBox[{"x", "^", "i"}], "*", 
+         RowBox[{"y", "^", "j"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "0", ",", "n"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "0", ",", "n"}], "}"}]}], "]"}]}]}]}], ";"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{"Ansatz", " ", "f\[UDoubleDot]r", " ", "ux"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"uy", "=", 
+    RowBox[{"x", "*", 
+     RowBox[{"(", 
+      RowBox[{"x", "-", "l"}], ")"}], "*", 
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"CY", "[", 
+         RowBox[{"[", 
+          RowBox[{
+           RowBox[{"i", "+", "1"}], ",", 
+           RowBox[{"j", "+", "1"}]}], "]"}], "]"}], "*", 
+        RowBox[{"x", "^", "i"}], "*", 
+        RowBox[{"y", "^", "j"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "0", ",", "n"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "0", ",", "n"}], "}"}]}], "]"}]}]}], ";"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{"Ansatz", " ", "f\[UDoubleDot]r", " ", "uy"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"exx", "=", 
+    RowBox[{"Simplify", "[", 
+     RowBox[{"D", "[", 
+      RowBox[{"ux", ",", "x"}], "]"}], "]"}]}], ";"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{"Dehnungen", " ", "aus", " ", "Verschiebungen", " ", "bestimmen"}],
+    "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eyy", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{"D", "[", 
+     RowBox[{"uy", ",", "y"}], "]"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"exy", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"D", "[", 
+        RowBox[{"ux", ",", "y"}], "]"}], "+", 
+       RowBox[{"D", "[", 
+        RowBox[{"uy", ",", "x"}], "]"}]}], ")"}], "/", "2"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"spe", "=", 
+   RowBox[{"exx", "+", "eyy"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"txx", "=", 
+    RowBox[{"Simplify", "[", 
+     RowBox[{
+      RowBox[{"3", "*", "K", "*", 
+       RowBox[{"spe", "/", "3"}]}], "+", 
+      RowBox[{"2", "*", "G", "*", 
+       RowBox[{"(", 
+        RowBox[{"exx", "-", 
+         RowBox[{"spe", "/", "3"}]}], ")"}]}]}], "]"}]}], ";"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Spannungen", " ", "aus", " ", "den", " ", "Dehnungen", " ", "berechnen"}],
+    "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tyy", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{
+     RowBox[{"3", "*", "K", "*", 
+      RowBox[{"spe", "/", "3"}]}], "+", 
+     RowBox[{"2", "*", "G", "*", 
+      RowBox[{"(", 
+       RowBox[{"eyy", "-", 
+        RowBox[{"spe", "/", "3"}]}], ")"}]}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"txy", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{"2", "*", "G", "*", "exy"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"integrant", "=", 
+    RowBox[{"Expand", "[", 
+     RowBox[{
+      RowBox[{"exx", "*", "txx"}], "+", 
+      RowBox[{"eyy", "*", "tyy"}], "+", 
+      RowBox[{"2", "*", "exy", "*", "txy"}]}], "]"}]}], ";"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Elastische", " ", "Energie"}], "=", 
+    RowBox[{
+     RowBox[{"T", ".."}], " ", "E"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<Integrieren 1...\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"w1", "=", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{"Expand", "[", 
+      RowBox[{"Integrate", "[", 
+       RowBox[{"integrant", ",", 
+        RowBox[{"{", 
+         RowBox[{"y", ",", "0", ",", 
+          RowBox[{"l", "/", "2"}]}], "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", 
+       RowBox[{
+        RowBox[{"2", "/", "5"}], "*", "l"}]}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<Integrieren 2...\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"w2", "=", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{"Expand", "[", 
+      RowBox[{"Integrate", "[", 
+       RowBox[{"integrant", ",", 
+        RowBox[{"{", 
+         RowBox[{"y", ",", "ykerbe", ",", 
+          RowBox[{"l", "/", "2"}]}], "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{
+        RowBox[{"2", "/", "5"}], "*", "l"}], ",", 
+       RowBox[{
+        RowBox[{"3", "/", "5"}], "*", "l"}]}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", "\"\<Integrieren 3...\>\"", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"w3", "=", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{"Expand", "[", 
+      RowBox[{"Integrate", "[", 
+       RowBox[{"integrant", ",", 
+        RowBox[{"{", 
+         RowBox[{"y", ",", "0", ",", 
+          RowBox[{"l", "/", "2"}]}], "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{
+        RowBox[{"3", "/", "5"}], "*", "l"}], ",", "l"}], "}"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"w", "=", 
+   RowBox[{"w1", "+", "w2", "+", "w3"}]}], ";"}], "\n", 
+ RowBox[{"Print", "[", 
+  "\"\<Gleichungssystem aufbauen und l\[ODoubleDot]sen...\>\"", "]"}], "\n", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "<", 
+     RowBox[{"n", "+", "2"}]}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{"For", "[", 
+     RowBox[{
+      RowBox[{"j", "=", "1"}], ",", 
+      RowBox[{"j", "<", 
+       RowBox[{"n", "+", "2"}]}], ",", 
+      RowBox[{"j", "++"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"eqb1", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "j"}], "]"}], "]"}], "=", 
+        RowBox[{"Simplify", "[", 
+         RowBox[{"D", "[", 
+          RowBox[{"w", ",", 
+           RowBox[{"CX", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"eqb2", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "j"}], "]"}], "]"}], "=", 
+        RowBox[{"Simplify", "[", 
+         RowBox[{"D", "[", 
+          RowBox[{"w", ",", 
+           RowBox[{"CY", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "]"}], "]"}]}], ";"}]}],
+      "]"}]}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"alleqs", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Union", "[", 
+     RowBox[{"eqb1", ",", "eqb2"}], "]"}], "]"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Gleichungen", " ", "und", " ", "Variablen", " ", "in", " ", "einer", " ", 
+    "Liste", " ", "zusammenfassen"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"allvars", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Union", "[", 
+     RowBox[{"CX", ",", "CY"}], "]"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"erg", "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{"alleqs", ",", "allvars"}], "]"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{"Koeffizienten", " ", "ermitteln"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Print", "[", "\"\<Ergebnsisse zuweisen...\>\"", "]"}]}], "\n", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "<", 
+    RowBox[{"n", "+", "2"}]}], ",", 
+   RowBox[{"i", "++"}], ",", 
+   RowBox[{"For", "[", 
+    RowBox[{
+     RowBox[{"j", "=", "1"}], ",", 
+     RowBox[{"j", "<", 
+      RowBox[{"n", "+", "2"}]}], ",", 
+     RowBox[{"j", "++"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"cxval", "[", 
+        RowBox[{"i", ",", "j"}], "]"}], "=", 
+       RowBox[{
+        RowBox[{"CX", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "j"}], "]"}], "]"}], "/.", 
+        RowBox[{"erg", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"cyval", "[", 
+        RowBox[{"i", ",", "j"}], "]"}], "=", 
+       RowBox[{
+        RowBox[{"CY", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "j"}], "]"}], "]"}], "/.", 
+        RowBox[{"erg", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}]}], ";"}]}], "]"}]}], "]"}], "\n", 
+ RowBox[{"Print", "[", "\"\<Deformierten K\[ODoubleDot]rper angucken...\>\"", 
+  "]"}], "\n", 
+ RowBox[{
+  RowBox[{"xe", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{"x", "+", "ux"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"ye", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{"y", "+", "uy"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"part1", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"xe", ",", "ye"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "0", ",", 
+       RowBox[{"l", "/", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", 
+       RowBox[{
+        RowBox[{"2", "/", "5"}], "*", "l"}]}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"cf", "[", 
+    RowBox[{"x_", ",", "y_"}], "]"}], "=", "txx"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"part2", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"xe", ",", "ye"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{
+        RowBox[{"2", "/", "5"}], "*", "l"}], ",", 
+       RowBox[{
+        RowBox[{"3", "/", "5"}], "*", "l"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "ykerbe", ",", 
+       RowBox[{"l", "/", "2"}]}], "}"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"part3", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"xe", ",", "ye"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "0", ",", 
+       RowBox[{"l", "/", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{
+        RowBox[{"3", "/", "5"}], "*", "l"}], ",", "l"}], "}"}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{"Show", "[", 
+  RowBox[{"part1", ",", "part2", ",", "part3", ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", 
+        RowBox[{"l", "+", "disp"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", 
+        RowBox[{"l", "/", "2"}]}], "}"}]}], "}"}]}]}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{"x", "=", "0.5"}], ";", 
+  RowBox[{"y", "=", "ykerbe"}], ";", 
+  RowBox[{"txxmax", "=", 
+   RowBox[{"N", "[", "txx", "]"}]}], ";", 
+  RowBox[{"Clear", "[", "x", "]"}], ";", 
+  RowBox[{"Clear", "[", "y", "]"}], ";"}], "\n", 
+ RowBox[{"Print", "[", 
+  RowBox[{"\"\<Txx am Kerbengrund: \>\"", ",", "txxmax"}], "]"}], "\n", 
+ RowBox[{
+  RowBox[{"txxplot", "=", 
+   RowBox[{"DensityPlot", "[", 
+    RowBox[{"txx", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "l"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "0", ",", 
+       RowBox[{"l", "/", "2"}]}], "}"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"ColorFunctionScaling", "\[Rule]", "False"}], ",", 
+     RowBox[{"ColorFunction", "\[Rule]", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ColorData", "[", "\"\<Rainbow\>\"", "]"}], "[", 
+         RowBox[{"Rescale", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "txxmax"}], "}"}]}], "]"}], "]"}], "&"}], 
+       ")"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "txxmax"}], "}"}]}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"tyyplot", "=", 
+   RowBox[{"DensityPlot", "[", 
+    RowBox[{"tyy", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "l"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "0", ",", 
+       RowBox[{"l", "/", "2"}]}], "}"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"ColorFunction", "\[Rule]", "\"\<Rainbow\>\""}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"txyplot", "=", 
+   RowBox[{"DensityPlot", "[", 
+    RowBox[{"txy", ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "l"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "0", ",", 
+       RowBox[{"l", "/", "2"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"ColorFunction", "\[Rule]", "\"\<Rainbow\>\""}]}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"kerbeverdecken", "=", 
+   RowBox[{"RegionPlot", "[", 
+    RowBox[{
+     RowBox[{"y", "<", "ykerbe"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "0", ",", "l"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "0", ",", 
+       RowBox[{"l", "/", "2"}]}], "}"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{"Show", "[", 
+  RowBox[{"txxplot", ",", "kerbeverdecken"}], "]"}], "\n", 
+ RowBox[{"Show", "[", 
+  RowBox[{"tyyplot", ",", "kerbeverdecken"}], "]"}], "\n", 
+ RowBox[{"Show", "[", 
+  RowBox[{"txyplot", ",", "kerbeverdecken"}], "]"}], "\n"}], "Input",
+ CellChangeTimes->{{3.9582905575270667`*^9, 3.958290591224633*^9}, 
+   3.9582926378921986`*^9, {3.958292950300542*^9, 3.958292988986084*^9}, {
+   3.9582932010648413`*^9, 3.9582932025441694`*^9}, {3.9582935358077817`*^9, 
+   3.958293539773771*^9}, 3.958295186149704*^9, 
+   3.9582952469829226`*^9},ExpressionUUID->"a56d2070-b09b-474f-92cf-\
+02a97b7fceca"]
+},
+WindowSize->{1904, 1127},
+WindowMargins->{{-8, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 16420, 504, 2018, "Input", "ExpressionUUID" -> \
+"a56d2070-b09b-474f-92cf-02a97b7fceca"]
+}
+]
+*)
+

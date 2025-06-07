@@ -1,0 +1,205 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6231,        197]
+NotebookOptionsPosition[      5927,        183]
+NotebookOutlinePosition[      6270,        198]
+CellTagsIndexPosition[      6227,        195]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Cache", " ", "leeren"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Normierte", " ", "Kugelkoordinaten"}], "-", 
+    RowBox[{"Basis", " ", "invertieren"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sol", "=", 
+   RowBox[{"FullSimplify", "[", 
+    RowBox[{"Solve", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"er", "\[Equal]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Cos", "[", "t", "]"}], "*", 
+           RowBox[{"Cos", "[", "p", "]"}], "*", "ex"}], "+", 
+          RowBox[{
+           RowBox[{"Cos", "[", "t", "]"}], "*", 
+           RowBox[{"Sin", "[", "p", "]"}], "*", "ey"}], "+", 
+          RowBox[{
+           RowBox[{"Sin", "[", "t", "]"}], "*", "ez"}]}]}], ",", 
+        RowBox[{"ep", "\[Equal]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", 
+            RowBox[{"Sin", "[", "p", "]"}]}], "*", "ex"}], "+", 
+          RowBox[{
+           RowBox[{"Cos", "[", "p", "]"}], "*", "ey"}]}]}], ",", 
+        RowBox[{"et", "\[Equal]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", 
+            RowBox[{"Sin", "[", "t", "]"}]}], "*", 
+           RowBox[{"Cos", "[", "p", "]"}], "*", "ex"}], "-", 
+          RowBox[{
+           RowBox[{"Sin", "[", "t", "]"}], "*", 
+           RowBox[{"Sin", "[", "p", "]"}], "*", "ey"}], "+", 
+          RowBox[{
+           RowBox[{"Cos", "[", "t", "]"}], "*", "ez"}]}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"ex", ",", "ey", ",", "ez"}], "}"}]}], "]"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"ex", "=", 
+   RowBox[{"ex", "/.", 
+    RowBox[{"sol", "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"ey", "=", 
+   RowBox[{"ey", "/.", 
+    RowBox[{"sol", "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ez", "=", 
+    RowBox[{"ez", "/.", 
+     RowBox[{"sol", "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}]}], ";"}], "\n", 
+  RowBox[{"(*", "Koordinatenwechsel", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"x", "=", 
+   RowBox[{"r", "*", 
+    RowBox[{"Cos", "[", "t", "]"}], "*", 
+    RowBox[{"Cos", "[", "p", "]"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"y", "=", 
+   RowBox[{"r", "*", 
+    RowBox[{"Cos", "[", "t", "]"}], "*", 
+    RowBox[{"Sin", "[", "p", "]"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"z", "=", 
+    RowBox[{"r", "*", 
+     RowBox[{"Sin", "[", "t", "]"}]}]}], ";"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Jacobimatrix", " ", "und", " ", "deren", " ", "Inverse", " ", 
+    "ermitteln"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"J", "=", 
+   RowBox[{"FullSimplify", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"D", "[", 
+         RowBox[{"x", ",", "r"}], "]"}], ",", 
+        RowBox[{"D", "[", 
+         RowBox[{"x", ",", "p"}], "]"}], ",", 
+        RowBox[{"D", "[", 
+         RowBox[{"x", ",", "t"}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"D", "[", 
+         RowBox[{"y", ",", "r"}], "]"}], ",", 
+        RowBox[{"D", "[", 
+         RowBox[{"y", ",", "p"}], "]"}], ",", 
+        RowBox[{"D", "[", 
+         RowBox[{"y", ",", "t"}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"D", "[", 
+         RowBox[{"z", ",", "r"}], "]"}], ",", 
+        RowBox[{"D", "[", 
+         RowBox[{"z", ",", "p"}], "]"}], ",", 
+        RowBox[{"D", "[", 
+         RowBox[{"z", ",", "t"}], "]"}]}], "}"}]}], "}"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Jinv", "=", 
+    RowBox[{"FullSimplify", "[", 
+     RowBox[{"Inverse", "[", "J", "]"}], "]"}]}], ";"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Partielle", " ", "Ableitungen", " ", "nach", " ", "r"}], ",", 
+    "p", ",", 
+    RowBox[{
+    "t", " ", "als", " ", "Vektor", " ", "von", " ", "links", " ", "an", " ", 
+     "Jinv", " ", "heranmultiplizieren", " ", "um", " ", "die", " ", 
+     "partiellen", " ", "Ableitungen", " ", "nach", " ", "x"}], ",", "y", ",", 
+    RowBox[{"z", " ", "zu", " ", "erhalten"}]}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"partdiffs", "=", 
+    RowBox[{"FullSimplify", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"ddr", ",", "ddp", ",", "ddt"}], "}"}], ".", "Jinv"}], "]"}]}],
+    ";"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Jetzt", " ", "liegen", " ", "die", " ", "Basisvektoren", " ", "und", " ",
+      "die", " ", "partiellen", " ", "Ableitungen", " ", "nach", " ", "x"}], 
+    ",", "y", ",", 
+    RowBox[{"z", " ", 
+     RowBox[{"vor", ":", 
+      RowBox[{
+      "Nablaoperator", " ", "aufbauen", " ", "und", " ", 
+       "zusammenfassen"}]}]}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{"ex", "*", 
+    RowBox[{"partdiffs", "[", 
+     RowBox[{"[", "1", "]"}], "]"}]}], "+", 
+   RowBox[{"ey", "*", 
+    RowBox[{"partdiffs", "[", 
+     RowBox[{"[", "2", "]"}], "]"}]}], "+", 
+   RowBox[{"ez", "*", 
+    RowBox[{"partdiffs", "[", 
+     RowBox[{"[", "3", "]"}], "]"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.958292892446639*^9, 
+  3.9582929094101267`*^9}},ExpressionUUID->"b9ba6c53-00d3-4f51-b2c6-\
+adf6871e3720"]
+},
+WindowSize->{1904, 1127},
+WindowMargins->{{3, Automatic}, {Automatic, 8}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 5365, 161, 495, "Input", "ExpressionUUID" -> \
+"b9ba6c53-00d3-4f51-b2c6-adf6871e3720"]
+}
+]
+*)
+
