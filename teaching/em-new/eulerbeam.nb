@@ -1,0 +1,272 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8283,        264]
+NotebookOptionsPosition[      7363,        237]
+NotebookOutlinePosition[      7915,        257]
+CellTagsIndexPosition[      7872,        254]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{
+   "v", ",", "v1", ",", "v2", ",", "v3", ",", "c1", ",", "c2", ",", "c3", ",",
+     "c4"}], "]"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Euler", " ", 
+     RowBox[{"equation", ":", " ", 
+      RowBox[{"EI", " ", 
+       RowBox[{"v", "''''"}]}]}]}], "=", 
+    RowBox[{"w", " ", "+", " ", 
+     RowBox[{"P", " ", 
+      RowBox[{"DiracDelta", "[", 
+       RowBox[{"x", "-", "d"}], "]"}]}]}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"v3", "=", 
+  RowBox[{
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"w", "+", 
+        RowBox[{"P", " ", 
+         RowBox[{"DiracDelta", "[", 
+          RowBox[{"x", "-", "d"}], "]"}]}]}], ")"}], "/", "EI"}], ",", "x"}], 
+    "]"}], "+", "c1"}]}], "\[IndentingNewLine]", 
+ RowBox[{"v2", "=", 
+  RowBox[{
+   RowBox[{"Integrate", "[", 
+    RowBox[{"v3", ",", "x"}], "]"}], "+", "c2"}]}], "\[IndentingNewLine]", 
+ RowBox[{"v1", "=", 
+  RowBox[{
+   RowBox[{"Integrate", "[", 
+    RowBox[{"v2", ",", "x"}], "]"}], "+", "c3"}]}], "\[IndentingNewLine]", 
+ RowBox[{"v", "=", 
+  RowBox[{
+   RowBox[{"Integrate", "[", 
+    RowBox[{"v1", ",", "x"}], "]"}], "+", "c4"}]}]}], "Input",ExpressionUUID->\
+"77692f4f-0621-4fca-b644-4daa872a7387"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"v2", "/.", 
+    RowBox[{"x", "\[Rule]", "0"}]}], "/.", 
+   RowBox[{
+    RowBox[{"UnitStep", "[", 
+     RowBox[{"L", "-", "d"}], "]"}], "\[Rule]", "1"}]}], "/.", 
+  RowBox[{
+   RowBox[{"UnitStep", "[", 
+    RowBox[{"-", "d"}], "]"}], "\[Rule]", "0"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"v", "/.", 
+    RowBox[{"x", "\[Rule]", "0"}]}], "/.", 
+   RowBox[{
+    RowBox[{"UnitStep", "[", 
+     RowBox[{"L", "-", "d"}], "]"}], "\[Rule]", "1"}]}], "/.", 
+  RowBox[{
+   RowBox[{"UnitStep", "[", 
+    RowBox[{"-", "d"}], "]"}], "\[Rule]", "0"}]}]}], "Input",ExpressionUUID->\
+"46e620ba-54f0-4b72-b27d-3463d7fd9461"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"v", "=", 
+   RowBox[{
+    RowBox[{"v", "/.", 
+     RowBox[{"c2", "\[Rule]", "0"}]}], "/.", 
+    RowBox[{"c4", "\[Rule]", "0"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"v2", "=", 
+   RowBox[{
+    RowBox[{"v2", "/.", 
+     RowBox[{"c2", "\[Rule]", "0"}]}], "/.", 
+    RowBox[{"c4", "\[Rule]", "0"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"eq2", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"v2", "/.", 
+     RowBox[{"x", "\[Rule]", "L"}]}], "/.", 
+    RowBox[{
+     RowBox[{"UnitStep", "[", 
+      RowBox[{"L", "-", "d"}], "]"}], "\[Rule]", "1"}]}], "/.", 
+   RowBox[{
+    RowBox[{"UnitStep", "[", 
+     RowBox[{"-", "d"}], "]"}], "\[Rule]", "0"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"v", "=", 
+  RowBox[{"v", "/.", 
+   RowBox[{
+    RowBox[{"Solve", "[", 
+     RowBox[{
+      RowBox[{"eq2", "\[Equal]", "0"}], ",", "c1"}], "]"}], "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"v2", "=", 
+  RowBox[{"v2", "/.", 
+   RowBox[{
+    RowBox[{"Solve", "[", 
+     RowBox[{
+      RowBox[{"eq2", "\[Equal]", "0"}], ",", "c1"}], "]"}], "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}]}]}], "Input",ExpressionUUID->"0dc6cbfd-\
+ad2c-403c-ada9-0dd5cc0d8f16"],
+
+Cell[BoxData[{
+ RowBox[{"eq", "=", 
+  RowBox[{"Simplify", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"v", "/.", 
+        RowBox[{"x", "\[Rule]", "L"}]}], "/.", 
+       RowBox[{
+        RowBox[{"UnitStep", "[", 
+         RowBox[{"L", "-", "d"}], "]"}], "\[Rule]", "1"}]}], "/.", 
+      RowBox[{
+       RowBox[{"UnitStep", "[", 
+        RowBox[{"-", "d"}], "]"}], "\[Rule]", "0"}]}], "/.", 
+     RowBox[{"c2", "\[Rule]", "0"}]}], "/.", 
+    RowBox[{"c4", "\[Rule]", "0"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"v", "=", 
+  RowBox[{"v", "/.", 
+   RowBox[{
+    RowBox[{"Solve", "[", 
+     RowBox[{
+      RowBox[{"eq", "\[Equal]", "0"}], ",", "c3"}], "]"}], "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"v2", "=", 
+  RowBox[{"v2", "/.", 
+   RowBox[{
+    RowBox[{"Solve", "[", 
+     RowBox[{
+      RowBox[{"eq", "\[Equal]", "0"}], ",", "c3"}], "]"}], "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}]}]}], "Input",ExpressionUUID->"329ef606-\
+9e60-4017-a0ee-c9385569b348"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"valuep", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"EI", "\[Rule]", "1"}], ",", 
+     RowBox[{"L", "\[Rule]", "1"}], ",", 
+     RowBox[{"d", "\[Rule]", "0.5"}], ",", 
+     RowBox[{"P", "\[Rule]", "1"}], ",", 
+     RowBox[{"w", "\[Rule]", "0"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"valuew", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"EI", "\[Rule]", "1"}], ",", 
+     RowBox[{"L", "\[Rule]", "1"}], ",", 
+     RowBox[{"d", "\[Rule]", "0.5"}], ",", 
+     RowBox[{"P", "\[Rule]", "0"}], ",", 
+     RowBox[{"w", "\[Rule]", "1"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"nvp", "=", 
+  RowBox[{"v", "/.", "valuep"}]}], "\[IndentingNewLine]", 
+ RowBox[{"nv2p", "=", 
+  RowBox[{"v2", "/.", "valuep"}]}], "\[IndentingNewLine]", 
+ RowBox[{"nvw", "=", 
+  RowBox[{"v", "/.", "valuew"}]}], "\[IndentingNewLine]", 
+ RowBox[{"nv2w", "=", 
+  RowBox[{"v2", "/.", "valuew"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"nvp", ",", "nvw"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Hue", "[", "0.2", "]"}], ",", 
+      RowBox[{"Hue", "[", "1", "]"}]}], "}"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"nvp", "/.", 
+    RowBox[{"x", "\[Rule]", "0.5"}]}], ",", 
+   RowBox[{"nvw", "/.", 
+    RowBox[{"x", "\[Rule]", "0.5"}]}], ",", 
+   RowBox[{"nvp", "/.", 
+    RowBox[{"x", "\[Rule]", "0.25"}]}], ",", 
+   RowBox[{"nvw", "/.", 
+    RowBox[{"x", "\[Rule]", "0.25"}]}]}], "}"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "nv2p"}], ",", 
+     RowBox[{"-", "nv2w"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Hue", "[", "0.2", "]"}], ",", 
+      RowBox[{"Hue", "[", "1", "]"}]}], "}"}]}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "nv2p"}], "/.", 
+    RowBox[{"x", "\[Rule]", "0.5"}]}], ",", 
+   RowBox[{
+    RowBox[{"-", "nv2w"}], "/.", 
+    RowBox[{"x", "\[Rule]", "0.5"}]}], ",", 
+   RowBox[{
+    RowBox[{"-", "nv2p"}], "/.", 
+    RowBox[{"x", "\[Rule]", "0.25"}]}], ",", 
+   RowBox[{
+    RowBox[{"-", "nv2w"}], "/.", 
+    RowBox[{"x", "\[Rule]", "0.25"}]}]}], "}"}]}], "Input",ExpressionUUID->\
+"07051764-b511-4cb8-9385-31def311b1d3"]
+},
+WindowSize->{1272, 892},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{2, 2},
+PrintingOptions->{"PrintingMargins"->{{36, 36}, {36, 36}}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> True}},
+CellLabelAutoDelete->True,
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1313, 40, 203, "Input", "ExpressionUUID" -> \
+"77692f4f-0621-4fca-b644-4daa872a7387"],
+Cell[1874, 62, 677, 21, 80, "Input", "ExpressionUUID" -> \
+"46e620ba-54f0-4b72-b27d-3463d7fd9461"],
+Cell[2554, 85, 1224, 38, 151, "Input", "ExpressionUUID" -> \
+"0dc6cbfd-ad2c-403c-ada9-0dd5cc0d8f16"],
+Cell[3781, 125, 1031, 31, 115, "Input", "ExpressionUUID" -> \
+"329ef606-9e60-4017-a0ee-c9385569b348"],
+Cell[4815, 158, 2544, 77, 226, "Input", "ExpressionUUID" -> \
+"07051764-b511-4cb8-9385-31def311b1d3"]
+}
+]
+*)
+
