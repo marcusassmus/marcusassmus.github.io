@@ -1,9 +1,12 @@
 User-Agent: *
 Allow: /index.html
 Allow: /ma-pub.pdf
+Disallow: /hp/mad.jpg
+Disallow: /hp/mad-2016.jpg
 Disallow: /mechanics.html
 Disallow: /publications.html
 Disallow: /talks.html
+Disallow: /teaching.html
 Disallow: /net.html
 Disallow: /sci.html
 Disallow: /sci-final.html
