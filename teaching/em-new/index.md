@@ -24,7 +24,7 @@ layout: null
         }
         a {
             color: #000;
-            text-decoration: none;
+            text-decoration: underline;
         }
     </style>
 </head>
