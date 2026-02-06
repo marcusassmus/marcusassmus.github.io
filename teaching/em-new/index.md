@@ -14,11 +14,9 @@ layout: null
             max-width: 800px;
             padding: 0 1rem;
         }
-       ul {
-            list-style: none; /* CSS überschreibt type="circle" ggf. */
-        }
-        li {
-            margin: 0.8rem 0;
+		ul {
+            list-style-type: circle; 
+            padding-left: 1.0em;     
         }
         a {
             color: #000;
@@ -31,7 +29,7 @@ layout: null
 </head>
 <body>
 
-<ul type="circle">
+<ul>
 {% for file in site.static_files %}
   {% if file.path contains 'teaching/em-new/' and file.path != page.path %}
     <li><a href="{{ file.path | relative_url }}">{{ file.name }}</a></li>
