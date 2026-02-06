@@ -8,7 +8,7 @@ layout: null
     <style>
         body {
             font-family: monospace;
-            font-size: 1.05em;
+            font-size: 1.0em;
             color: #000;
             max-width: 800px;
             padding: 0 1rem;
@@ -19,7 +19,7 @@ layout: null
         }
 		li {
             margin: 0.5em 0;   
-            line-height: 1.4;
+            line-height: 1.05;
         }
         a {
             color: #000;
