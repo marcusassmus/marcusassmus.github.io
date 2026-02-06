@@ -10,7 +10,6 @@ layout: null
             font-family: monospace;
             font-size: 1.05em;
             color: #000;
-            margin: 2rem auto;
             max-width: 800px;
             padding: 0 1rem;
         }
