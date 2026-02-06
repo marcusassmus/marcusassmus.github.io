@@ -16,15 +16,26 @@ layout: null
         }
 		ul {
             list-style-type: circle; 
-            padding-left: 1.0em;     
+            padding-left: 1.1em;     
         }
         a {
             color: #000;
             text-decoration: none;
         }
-        a:hover {
-            text-decoration: underline;
-        }
+		a:link {
+			text-decoration: none;
+			font: normal  1.05em Monospace;
+			color: white;
+		}
+
+		a:visited {
+			color: white;
+		}
+
+		a:hover {
+			color: black;
+			background: #00e800;
+		}
     </style>
 </head>
 <body>
