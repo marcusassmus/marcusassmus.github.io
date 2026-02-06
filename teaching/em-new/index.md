@@ -14,13 +14,21 @@ layout: null
             max-width: 800px;
             padding: 0 1rem;
         }
-		ul {
-            list-style-type: circle; 
-            padding-left: 1.1em;     
+        ul {
+            list-style-type: disc;  
+            padding-left: 1.5em;  
+            margin: 1em 0;
+        }
+        li {
+            margin: 0.5em 0;   
+            line-height: 1.4;
         }
         a {
             color: #000;
             text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
