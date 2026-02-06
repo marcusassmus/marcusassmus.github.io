@@ -14,9 +14,8 @@ layout: null
             max-width: 800px;
             padding: 0 1rem;
         }
-        ul {
-            list-style: none;
-            padding: 0;
+       ul {
+            list-style: none; /* CSS überschreibt type="circle" ggf. */
         }
         li {
             margin: 0.8rem 0;
