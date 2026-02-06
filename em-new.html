@@ -1,0 +1,8 @@
+<ul>
+{% for file in site.static_files %}
+  {% if file.path contains 'teaching/em-new/' %}
+    <li><a href="{{ file.path | relative_url }}">{{ file.name }}</a> 
+    ({{ file.extname | upcase }})</li>
+  {% endif %}
+{% endfor %}
+</ul>
